@@ -1,4 +1,4 @@
-# image_project
+# Image_project
 
 - I want to create a grid of images of height 110 and variable width such that max width never goes above 1050.
 
