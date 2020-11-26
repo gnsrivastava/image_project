@@ -33,11 +33,11 @@ def get_concat_h_multi_resize(im_list, resample=Image.BICUBIC):
     return dst
 
 def get_concat_v_multi_resize(im_list, resample=Image.BICUBIC):
-    min_width = max(im.width for im in im_list)
-    #im_list_resize = [im.resize((min_width, int(im.height * min_width / im.width)),resample=resample) for im in im_list]
+    max_width = max(im.width for im in im_list)
+    #im_list_resize = [im.resize((min_width, int(im.height * max_width / im.width)),resample=resample) for im in im_list]
     im_list_resize = im_list
     total_height = sum(im.height for im in im_list_resize)
-    dst = Image.new('RGB', (min_width, total_height))
+    dst = Image.new('RGB', (max_width, total_height))
     pos_y = 0
     for im in im_list_resize:
         dst.paste(im, (0, pos_y))
